@@ -67,5 +67,12 @@ export type AythDataType= {
   password: string;
 }
 
+export type NavigationListType = {
+  title: string;
+  isActive: boolean;
+  url: string;
+};
+
+
 
 export type Token = string;

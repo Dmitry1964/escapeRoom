@@ -1,3 +1,5 @@
+import { NavigationListType } from '../../types/quest-types';
+
 export enum AppRoute {
   Main = '/',
   Quest = '/qiuest',
@@ -41,6 +43,27 @@ export enum QuestIntricacy {
   Middle = 'Средний',
   Hard = 'Сложный'
 }
+
+export const navigationList: NavigationListType[] = [
+  {
+    title: 'квесты',
+    isActive: true,
+    url: AppRoute.Main
+  },
+
+  {
+    title: 'контакты',
+    isActive: false,
+    url: AppRoute.Contacts
+  },
+
+  {
+    title: 'мои бронирования',
+    isActive: false,
+    url: AppRoute.UserBooking,
+  },
+];
+
 
 export const TOKEN_KEY_NAME = 'escape-from-token';
 

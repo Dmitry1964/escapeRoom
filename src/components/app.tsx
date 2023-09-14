@@ -3,6 +3,7 @@ import PageMain from '../pages/page-main/page-main';
 import BookingQuest from '../pages/booking-quest/booking-quest';
 import { AppRoute } from '../constants/const';
 import PageNotFound from '../pages/page-not found/page-not-found';
+import Contacts from '../pages/constacts/contacts';
 
 const App = () : JSX.Element => (
   <BrowserRouter>
@@ -16,6 +17,10 @@ const App = () : JSX.Element => (
         <Route
           path={AppRoute.BookingQuest}
           element={<BookingQuest/>}
+        />
+        <Route
+          path={AppRoute.Contacts}
+          element={<Contacts/>}
         />
         <Route
           path = '*'
