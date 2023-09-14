@@ -18,6 +18,13 @@ export enum AuthStatus {
   Unknown = 'ANKNOWN'
 }
 
+export enum RequesrStatus {
+  Idle = 'idle',
+  Pending = 'pending',
+  Fulfilled = 'fulfilled',
+  Rejected = 'rejected',
+}
+
 
 // export enum QuestGenres {
 //   AllQuests = 'Все квесты',

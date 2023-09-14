@@ -5,7 +5,6 @@ import { store } from './store';
 import { fetchQuestsAction } from './store/api-actions';
 import App from './components/app';
 
-store.dispatch(fetchQuestsAction());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

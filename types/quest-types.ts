@@ -67,4 +67,5 @@ export type AythDataType= {
   password: string;
 }
 
+
 export type Token = string;

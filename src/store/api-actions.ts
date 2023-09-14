@@ -15,3 +15,5 @@ export const fetchQuestsAction = createAsyncThunk<void, undefined, {
   const {data} = await api.get<QuestType[]>(APIRoute.QuestList);
   dispatch(loadQuestsList(data));
 });
+
+

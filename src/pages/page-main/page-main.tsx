@@ -1,5 +1,17 @@
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { fetchQuestsAction } from '../../store/api-actions';
+import { useEffect } from 'react';
+
+
 
 const PageMain = () : JSX.Element => {
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchQuestsAction());
+  }, [dispatch]);
+
   const a = 2;
   return (
     <div className = 'wrapper'>

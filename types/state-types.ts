@@ -8,4 +8,5 @@ export type AppDispatch = typeof store.dispatch;
 
 export type StateType = {
   questsList: QuestType[];
+  loadQuestsListStatus: string;
 }
