@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { fetchQuestsAction } from './store/api-actions';
+import App from './components/app';
 
 store.dispatch(fetchQuestsAction());
 
@@ -13,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store = {store}>
-      {/* <App/> */}
+      <App/>
     </Provider>
   </React.StrictMode>
 );

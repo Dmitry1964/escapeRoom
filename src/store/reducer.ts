@@ -2,9 +2,6 @@ import {createReducer} from '@reduxjs/toolkit';
 import { loadQuestsList } from './actions';
 import {StateType} from '../../types/state-types';
 
-
-
-
 const initialState : StateType = {
   questsList: []
 };
