@@ -12,11 +12,12 @@ export enum AppRoute {
 
 export enum APIRoute {
   QuestList = '/quest',
+  Login = '/login',
 }
 
 export enum AuthStatus {
   Auth = 'AUTH',
-  NoAuth = 'NO_AYTH',
+  NoAuth = 'NO_AUTH',
   Unknown = 'ANKNOWN'
 }
 
@@ -139,9 +140,7 @@ export const mainNavigationLevels : NavigationLevelsListType[] = [
     name: 'Сложный',
     isActive: false,
   }
-
-
-]
+];
 
 export const TOKEN_KEY_NAME = 'escape-from-token';
 

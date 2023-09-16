@@ -62,10 +62,6 @@ export type UserBookingInfoType = {
   quest: QuestType;
 }
 
-export type AuthDataType= {
-  email: string;
-  password: string;
-}
 
 export type NavigationListType = {
   title: string;

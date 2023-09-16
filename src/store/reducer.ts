@@ -1,12 +1,13 @@
 import {createReducer} from '@reduxjs/toolkit';
-import { loadQuestsList } from './actions';
+import { loadQuestsList, checkAuthorization } from './actions';
 import {StateType} from '../../types/state-types';
-import { RequesrStatus } from '../constants/const';
+import { AuthStatus, RequesrStatus } from '../constants/const';
 import { fetchQuestsAction } from './api-actions';
 
 const initialState : StateType = {
   questsList: [],
   loadQuestsListStatus: RequesrStatus.Idle,
+  authorizationStatus: AuthStatus.Unknown,
 };
 
 const reducer = createReducer(initialState,(builder) => {
@@ -28,6 +29,11 @@ const reducer = createReducer(initialState,(builder) => {
     state.loadQuestsListStatus = RequesrStatus.Rejected;
   });
 
+  // проверка авторизации
+
+  builder.addCase(checkAuthorization, (state, action) => {
+    state.authorizationStatus = action.payload;
+  })
 
 });
 

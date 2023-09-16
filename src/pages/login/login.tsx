@@ -1,8 +1,11 @@
+import Header from '../../components/header/header';
+
 const Login = () : JSX.Element => {
   const a = 2;
   return (
     <div className="wrapper">
-      <header className="header">
+      <Header />
+      {/* <header className="header">
         <div className="container container--size-l">
           <a
             className="logo header__logo"
@@ -36,7 +39,7 @@ const Login = () : JSX.Element => {
             </a>
           </div>
         </div>
-      </header>
+      </header> */}
       <main className="decorated-page login">
         <div className="decorated-page__decor" aria-hidden="true">
           <picture>
