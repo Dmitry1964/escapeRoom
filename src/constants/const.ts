@@ -1,4 +1,4 @@
-import { NavigationListType } from '../../types/quest-types';
+import { NavigationListType, NavigationMainListType } from '../../types/quest-types';
 
 export enum AppRoute {
   Main = '/',
@@ -39,10 +39,17 @@ export enum RequesrStatus {
 
 export enum QuestIntricacy {
   Any = 'Любой',
-  Soft = 'Лёгкий',
-  Middle = 'Средний',
+  Easy = 'Лёгкий',
+  Medium = 'Средний',
   Hard = 'Сложный'
 }
+
+export enum QuestLevel {
+  hard = 'hard',
+  medium = 'medium',
+  easy = 'easy'
+}
+
 
 export const navigationList: NavigationListType[] = [
   {
@@ -61,6 +68,50 @@ export const navigationList: NavigationListType[] = [
     title: 'мои бронирования',
     isActive: false,
     url: AppRoute.UserBooking,
+  },
+];
+
+export const mainNavigationQuests : NavigationMainListType[] = [
+  {
+    name: 'Все квесты',
+    title: 'all',
+    isActive: true,
+    icon: '#icon-all-quests'
+  },
+
+  {
+    name: 'Приключения',
+    title: '',
+    isActive: false,
+    icon: '#icon-all-quests'
+  },
+
+  {
+    name: 'Ужасы',
+    title: '',
+    isActive: false,
+    icon: '#icon-all-quests'
+  },
+
+  {
+    name: 'Мистика',
+    title: '',
+    isActive: false,
+    icon: '#icon-all-quests'
+  },
+
+  {
+    name: 'Детектив',
+    title: '',
+    isActive: false,
+    icon: '#icon-all-quests'
+  },
+
+  {
+    name: 'Sci-fi',
+    title: '',
+    isActive: false,
+    icon: '#icon-all-quests'
   },
 ];
 

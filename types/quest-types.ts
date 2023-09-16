@@ -2,7 +2,7 @@ export type QuestType = {
   id: string;
   title: string;
   previewImg: string;
-  previewImgWeb: string;
+  previewImgWebp: string;
   level: string;
   type: string;
   peopleMinMax: number[];
@@ -62,7 +62,7 @@ export type UserBookingInfoType = {
   quest: QuestType;
 }
 
-export type AythDataType= {
+export type AuthDataType= {
   email: string;
   password: string;
 }
@@ -73,6 +73,12 @@ export type NavigationListType = {
   url: string;
 };
 
+export type NavigationMainListType = {
+  name: string;
+  title: string;
+  isActive: boolean;
+  icon: string;
+};
 
 
 export type Token = string;
