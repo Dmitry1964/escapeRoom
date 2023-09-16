@@ -10,7 +10,7 @@ const NavigationHeader = (): JSX.Element => {
         {navigationList.map((item) => (
           <li className="main-nav__item" key={item.title}>
             <Link
-              className={cn('link', { active: item.isActive })}
+              className={cn('link', { 'active': item.isActive })}
               to={item.url}
             >
               {item.title}

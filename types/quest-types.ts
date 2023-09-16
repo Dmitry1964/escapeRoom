@@ -73,12 +73,18 @@ export type NavigationListType = {
   url: string;
 };
 
-export type NavigationMainListType = {
+export type NavigationGenresListType = {
   name: string;
   title: string;
   isActive: boolean;
   icon: string;
 };
+
+export type NavigationLevelsListType = {
+  name: string;
+  title: string;
+  isActive: boolean;
+}
 
 
 export type Token = string;

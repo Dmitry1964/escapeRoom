@@ -19,7 +19,6 @@ const CardQuest = ({questCard} : CardQuestProps): JSX.Element => {
         return QuestIntricacy.Easy;
     }
   };
-
   return (
     <div className="quest-card">
       <div className="quest-card__img">

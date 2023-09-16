@@ -1,4 +1,4 @@
-import { NavigationListType, NavigationMainListType } from '../../types/quest-types';
+import { NavigationListType, NavigationGenresListType, NavigationLevelsListType } from '../../types/quest-types';
 
 export enum AppRoute {
   Main = '/',
@@ -71,7 +71,7 @@ export const navigationList: NavigationListType[] = [
   },
 ];
 
-export const mainNavigationQuests : NavigationMainListType[] = [
+export const mainNavigationQuests : NavigationGenresListType[] = [
   {
     name: 'Все квесты',
     title: 'all',
@@ -81,40 +81,67 @@ export const mainNavigationQuests : NavigationMainListType[] = [
 
   {
     name: 'Приключения',
-    title: '',
+    title: 'adventure',
     isActive: false,
-    icon: '#icon-all-quests'
+    icon: '#icon-adventure'
   },
 
   {
     name: 'Ужасы',
-    title: '',
+    title: 'horror',
     isActive: false,
-    icon: '#icon-all-quests'
+    icon: '#icon-horror'
   },
 
   {
     name: 'Мистика',
-    title: '',
+    title: 'mystic',
     isActive: false,
-    icon: '#icon-all-quests'
+    icon: '#icon-mystic'
   },
 
   {
     name: 'Детектив',
-    title: '',
+    title: 'detective',
     isActive: false,
-    icon: '#icon-all-quests'
+    icon: '#icon-detective'
   },
 
   {
     name: 'Sci-fi',
-    title: '',
+    title: 'sciFi',
     isActive: false,
-    icon: '#icon-all-quests'
+    icon: '#icon-sci-fi'
   },
 ];
 
+export const mainNavigationLevels : NavigationLevelsListType[] = [
+  {
+    title: 'any',
+    name: 'Любой',
+    isActive: true,
+  },
+
+  {
+    title: 'easy',
+    name: 'Лёгкий',
+    isActive: false,
+  },
+
+  {
+    title: 'medium',
+    name: 'Средний',
+    isActive: false,
+  },
+
+  {
+    title: 'hard',
+    name: 'Сложный',
+    isActive: false,
+  }
+
+
+]
 
 export const TOKEN_KEY_NAME = 'escape-from-token';
 

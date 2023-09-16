@@ -2,7 +2,7 @@ import { QuestType } from '../../../types/quest-types';
 import CardQuest from '../card-quest/card-quest';
 
 type QuestListType = {
-  questsList: QuestType[]
+  questsList: QuestType[];
 }
 
 const QuestsList = ({questsList} : QuestListType) : JSX.Element => {
