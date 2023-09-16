@@ -13,6 +13,7 @@ export enum AppRoute {
 export enum APIRoute {
   QuestList = '/quest',
   Login = '/login',
+  Logout = '/logout',
 }
 
 export enum AuthStatus {

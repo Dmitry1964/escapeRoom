@@ -3,7 +3,8 @@ export enum Actions {
   loadQuest = 'quest/load',
   checkUserAuth = 'user/checkAuth',
   loadUserData = 'user/loadData',
-  userLogin = 'user/login'
+  userLogin = 'user/login',
+  userLogout = 'user/logout'
 }
 
 export enum APIActions {

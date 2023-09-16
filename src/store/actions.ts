@@ -9,3 +9,4 @@ export const loadQuestsList = createAction<QuestType[]>(Actions.loadQuestsList);
 export const checkAuthorization = createAction<AuthStatus>(Actions.checkUserAuth);
 export const loadUserData = createAction<AuthDataType>(Actions.loadUserData);
 export const userLogin = createAction<UserDataType>(Actions.userLogin);
+export const userLogout = createAction(Actions.userLogout);

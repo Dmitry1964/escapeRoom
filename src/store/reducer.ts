@@ -33,7 +33,8 @@ const reducer = createReducer(initialState,(builder) => {
 
   builder.addCase(checkAuthorization, (state, action) => {
     state.authorizationStatus = action.payload;
-  })
+  });
+
 
 });
 
