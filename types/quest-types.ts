@@ -16,7 +16,7 @@ export type QuestInfoType = {
   level: string;
   type: string;
   peopleMinMax: number[];
-  descripions: string;
+  description: string;
   coverImg: string;
   coverImgWeb: string;
 }

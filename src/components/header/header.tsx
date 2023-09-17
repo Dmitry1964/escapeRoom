@@ -5,8 +5,13 @@ import Logo from '../logo/logo';
 import NavigationHeader from '../nav-header/nav-header';
 import { Link } from 'react-router-dom';
 import { menuItem } from '../../constants/const';
+import cn from 'classnames';
 
-const Header = (): JSX.Element => {
+type HeaderProps = {
+  visibility?: boolean;
+};
+
+const Header = ({ visibility }: HeaderProps): JSX.Element => {
   const authStatus = useAppSelector((state) => state.authorizationStatus);
   const dispatch = useAppDispatch();
   const handleButtonLogout = () => {
@@ -16,19 +21,23 @@ const Header = (): JSX.Element => {
     <header className="header">
       <div className="container container--size-l">
         <Logo />
-        <NavigationHeader menuItem = {menuItem} authStatus = {authStatus} />
+        <NavigationHeader menuItem={menuItem} authStatus={authStatus} />
         <div className="header__side-nav">
           {authStatus === AuthStatus.Auth ? (
             <Link
               onClick={handleButtonLogout}
-              className="btn btn--accent header__side-item"
+              className={cn('btn btn--accent header__side-item', {
+                'visually-hidden': visibility,
+              })}
               to="#"
             >
               Выйти
             </Link>
           ) : (
             <Link
-              className="btn btn--accen header__side-item"
+              className={cn('btn btn--accent header__side-item', {
+                'visually-hidden': visibility,
+              })}
               to={AppRoute.Login}
             >
               Войти

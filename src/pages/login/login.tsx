@@ -5,11 +5,12 @@ import { useAppSelector } from '../../hooks/hooks';
 import { AppRoute, AuthStatus } from '../../constants/const';
 
 const Login = () : JSX.Element => {
+  const NO_VISIBILITY = true;
   const loginStatus = useAppSelector((state) => state.authorizationStatus);
   return (
     <div className="wrapper">
       {loginStatus === AuthStatus.Auth && <Navigate to={AppRoute.Main} />}
-      <Header />
+      <Header visibility = {NO_VISIBILITY} />
       <main className="decorated-page login">
         <div className="decorated-page__decor" aria-hidden="true">
           <picture>

@@ -2,7 +2,7 @@ import { NavigationListType, NavigationGenresListType, NavigationLevelsListType 
 
 export enum AppRoute {
   Main = '/',
-  Quest = '/qiuest',
+  Quest = '/quest',
   Contacts = '/contacts',
   Login = '/login',
   BookingQuest = '/booking-quest',
@@ -30,14 +30,14 @@ export enum RequesrStatus {
 }
 
 
-// export enum QuestGenres {
-//   AllQuests = 'Все квесты',
-//   Adventures = 'Приключения',
-//   Horror = 'Ужасы',
-//   Mystic = 'Мистика',
-//   Detective = 'Детектив',
-//   SciFi = 'Sci-fi'
-// }
+export enum QuestGenres {
+  AllQuests = 'Все квесты',
+  Adventures = 'Приключения',
+  Horror = 'Ужасы',
+  Mystic = 'Мистика',
+  Detective = 'Детектив',
+  SciFi = 'Sci-fi'
+}
 
 export enum QuestIntricacy {
   Any = 'Любой',

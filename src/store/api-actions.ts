@@ -1,9 +1,9 @@
 import { AppDispatch, State } from '../../types/state-types';
-import { QuestType } from '../../types/quest-types';
+import { QuestType, QuestInfoType } from '../../types/quest-types';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AxiosInstance} from 'axios';
-import { APIRoute, AuthStatus } from '../constants/const';
-import { checkAuthorization, loadQuestsList, loadUserData } from './actions';
+import { APIRoute, AppRoute, AuthStatus } from '../constants/const';
+import { checkAuthorization, loadQuestsList, loadUserData, loadQuest } from './actions';
 import {AuthDataType, UserDataType} from '../../types/user-types';
 import { saveToken } from '../service/token';
 
@@ -18,6 +18,19 @@ export const fetchQuestsAction = createAsyncThunk<void, undefined, {
   dispatch(loadQuestsList(data));
 });
 
+// закрузка  квеста
+export const fetchQuestCardAction = createAsyncThunk<
+  void,
+  QuestType['id'],
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+    }
+>('data/fetchQuest', async (questId, {dispatch, extra: api}) => {
+  const {data} = await api.get<QuestInfoType>(`${AppRoute.Quest}/${questId}`);
+  dispatch(loadQuest(data));
+});
 
 // Проверка авторизации
 export const checkAuthorizationAction = createAsyncThunk<void, undefined, {
