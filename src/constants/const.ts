@@ -69,7 +69,7 @@ export const navigationList: NavigationListType[] = [
   {
     title: 'мои бронирования',
     isActive: false,
-    url: AppRoute.UserBooking,
+    url: AppRoute.Reservation,
   },
 ];
 
