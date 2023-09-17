@@ -5,8 +5,8 @@ export enum AppRoute {
   Quest = '/quest',
   Contacts = '/contacts',
   Login = '/login',
-  BookingQuest = '/booking-quest',
-  UserBooking = '/user-booking',
+  BookingQuest = '/booking',
+  Reservation = '/reservation',
   PageNotFound = '*'
 }
 
