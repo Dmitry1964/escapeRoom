@@ -24,7 +24,7 @@ const PageMain = () : JSX.Element => {
 
   return (
     <div className = 'wrapper'>
-      <Header />
+      <Header/>
       {loadStatus === RequesrStatus.Pending && <Loader/>}
       <main className="page-content">
         <div className="container">

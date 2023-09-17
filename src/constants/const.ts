@@ -73,6 +73,8 @@ export const navigationList: NavigationListType[] = [
   },
 ];
 
+export const menuItem = 'мои бронирования';
+
 export const mainNavigationQuests : NavigationGenresListType[] = [
   {
     name: 'Все квесты',

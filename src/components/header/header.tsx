@@ -4,6 +4,7 @@ import { userLogoutAction } from '../../store/api-actions';
 import Logo from '../logo/logo';
 import NavigationHeader from '../nav-header/nav-header';
 import { Link } from 'react-router-dom';
+import { menuItem } from '../../constants/const';
 
 const Header = (): JSX.Element => {
   const authStatus = useAppSelector((state) => state.authorizationStatus);
@@ -15,7 +16,7 @@ const Header = (): JSX.Element => {
     <header className="header">
       <div className="container container--size-l">
         <Logo />
-        <NavigationHeader />
+        <NavigationHeader menuItem = {menuItem} authStatus = {authStatus} />
         <div className="header__side-nav">
           {authStatus === AuthStatus.Auth ? (
             <Link
