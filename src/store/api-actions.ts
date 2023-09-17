@@ -3,7 +3,7 @@ import { QuestType } from '../../types/quest-types';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AxiosInstance} from 'axios';
 import { APIRoute, AuthStatus } from '../constants/const';
-import { checkAuthorization, loadQuestsList, loadUserData, userLogin } from './actions';
+import { checkAuthorization, loadQuestsList, loadUserData } from './actions';
 import {AuthDataType, UserDataType} from '../../types/user-types';
 import { saveToken } from '../service/token';
 

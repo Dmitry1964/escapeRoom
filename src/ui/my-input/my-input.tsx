@@ -1,4 +1,3 @@
-
 type MyInputProps = {
   type: string;
   name: string;
@@ -7,13 +6,8 @@ type MyInputProps = {
   required: boolean;
   value: string;
   onChange: (evt: { target: { value: string } }) => void;
-}
-
-const MyInput = (props : MyInputProps) : JSX.Element => {
-  const a=2;
-  return (
-    <input {...props}/>
-  );
 };
+
+const MyInput = (props: MyInputProps): JSX.Element => <input {...props} />;
 
 export default MyInput;
