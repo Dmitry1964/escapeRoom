@@ -4,7 +4,8 @@ export enum Actions {
   checkUserAuth = 'user/checkAuth',
   loadUserData = 'user/loadData',
   userLogin = 'user/login',
-  userLogout = 'user/logout'
+  userLogout = 'user/logout',
+  questBooking = 'quest/booking',
 }
 
 export enum APIActions {

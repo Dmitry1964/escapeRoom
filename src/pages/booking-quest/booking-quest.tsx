@@ -1,63 +1,43 @@
+import { useAppSelector } from '../../hooks/hooks';
+import Header from '../../components/header/header';
+import { timeSpendingToday, timeSpendingTomorrow } from '../../constants/const';
+import MyInput from '../../ui/my-input/my-input';
+import Footer from '../../components/footer/footer';
+import { useState } from 'react';
+
 const BookingQuest = (): JSX.Element => {
-  const a = 2;
+  const questData = useAppSelector((state) => state.quest);
+  const { title, previewImg, previewImgWeb, coverImg } = questData;
+  const questId = useAppSelector((state) => state.quest.id);
+
+  const [formData, setFormData] = useState({
+    date: '',
+    time: '',
+    contactPerson: '',
+    phone: '',
+    withChildren: true,
+    peopleCount: 1,
+    placeId: questId,
+  });
+
+  const submitForm = (evt:React.FormEvent) => {
+    evt.preventDefault();
+  };
+
+
   return (
     <div className="wrapper">
-      <header className="header">
-        <div className="container container--size-l">
-          <a
-            className="logo header__logo"
-            href="index.html"
-            aria-label="Перейти на Главную"
-          >
-            <svg width="134" height="52" aria-hidden="true">
-              <use xlinkHref="#logo"></use>
-            </svg>
-          </a>
-          <nav className="main-nav header__main-nav">
-            <ul className="main-nav__list">
-              <li className="main-nav__item">
-                <a className="link not-disabled active" href="index.html">
-                  Квесты
-                </a>
-              </li>
-              <li className="main-nav__item">
-                <a className="link" href="contacts.html">
-                  Контакты
-                </a>
-              </li>
-              <li className="main-nav__item">
-                <a className="link" href="my-quests.html">
-                  Мои бронирования
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="header__side-nav">
-            <a className="btn btn--accent header__side-item" href="#">
-              Выйти
-            </a>
-            <a
-              className="link header__side-item header__phone-link"
-              href="tel:88003335599"
-            >
-              8 (000) 111-11-11
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header />
       <main className="page-content decorated-page">
         <div className="decorated-page__decor" aria-hidden="true">
           <picture>
-            <source
-              type="image/webp"
-              srcSet="img/content/maniac/maniac-bg-size-m.webp, img/content/maniac/maniac-bg-size-m@2x.webp 2x"
-            />
+            <source type="image/webp" srcSet={previewImgWeb} />
             <img
-              src="img/content/maniac/maniac-bg-size-m.jpg"
-              srcSet="img/content/maniac/maniac-bg-size-m@2x.jpg 2x"
+              src={previewImg}
+              srcSet={coverImg}
               width="1366"
               height="1959"
-              alt=""
+              alt={title}
             />
           </picture>
         </div>
@@ -67,13 +47,15 @@ const BookingQuest = (): JSX.Element => {
               Бронирование квеста
             </h1>
             <p className="title title--size-m title--uppercase page-content__title">
-              Маньяк
+              {title}
             </p>
           </div>
           <div className="page-content__item">
             <div className="booking-map">
               <div className="map">
-                <div className="map__container"></div>
+                <div className="map__container">
+                  <img src="img/map.png" width="890" height="600" />
+                </div>
               </div>
               <p className="booking-map__address">
                 Вы&nbsp;выбрали: наб. реки Карповки&nbsp;5, лит&nbsp;П, м.
@@ -82,6 +64,7 @@ const BookingQuest = (): JSX.Element => {
             </div>
           </div>
           <form
+            onSubmit={(evt) => submitForm(evt)}
             className="booking-form"
             action="https://echo.htmlacademy.ru/"
             method="post"
@@ -91,115 +74,51 @@ const BookingQuest = (): JSX.Element => {
               <fieldset className="booking-form__date-section">
                 <legend className="booking-form__date-title">Сегодня</legend>
                 <div className="booking-form__date-inner-wrapper">
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="today9h45m"
-                      name="date"
-                      required
-                      value="today9h45m"
-                    />
-                    <span className="custom-radio__label">9:45</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="today15h00m"
-                      name="date"
-                      checked
-                      required
-                      value="today15h00m"
-                    />
-                    <span className="custom-radio__label">15:00</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="today17h30m"
-                      name="date"
-                      required
-                      value="today17h30m"
-                    />
-                    <span className="custom-radio__label">17:30</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="today19h30m"
-                      name="date"
-                      required
-                      value="today19h30m"
-                      disabled
-                    />
-                    <span className="custom-radio__label">19:30</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="today21h30m"
-                      name="date"
-                      required
-                      value="today21h30m"
-                    />
-                    <span className="custom-radio__label">21:30</span>
-                  </label>
+                  {timeSpendingToday.map((item) => (
+                    <label
+                      className="custom-radio booking-form__date"
+                      key={item.id}
+                    >
+                      <MyInput
+                        onChange={(evt) =>
+                          setFormData({
+                            ...formData,
+                            date: evt.target.value,
+                            time: evt.target.value,
+                          })}
+                        type={item.type}
+                        id={item.id}
+                        name={item.name}
+                        value={item.value}
+                      />
+                      <span className="custom-radio__label">{item.time}</span>
+                    </label>
+                  ))}
                 </div>
               </fieldset>
               <fieldset className="booking-form__date-section">
                 <legend className="booking-form__date-title">Завтра</legend>
                 <div className="booking-form__date-inner-wrapper">
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="tomorrow11h00m"
-                      name="date"
-                      required
-                      value="tomorrow11h00m"
-                    />
-                    <span className="custom-radio__label">11:00</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="tomorrow15h00m"
-                      name="date"
-                      required
-                      value="tomorrow15h00m"
-                      disabled
-                    />
-                    <span className="custom-radio__label">15:00</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="tomorrow17h30m"
-                      name="date"
-                      required
-                      value="tomorrow17h30m"
-                      disabled
-                    />
-                    <span className="custom-radio__label">17:30</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="tomorrow19h45m"
-                      name="date"
-                      required
-                      value="tomorrow19h45m"
-                    />
-                    <span className="custom-radio__label">19:45</span>
-                  </label>
-                  <label className="custom-radio booking-form__date">
-                    <input
-                      type="radio"
-                      id="tomorrow21h30m"
-                      name="date"
-                      required
-                      value="tomorrow21h30m"
-                    />
-                    <span className="custom-radio__label">21:30</span>
-                  </label>
+                  {timeSpendingTomorrow.map((item) => (
+                    <label
+                      className="custom-radio booking-form__date"
+                      key={item.id}
+                    >
+                      <MyInput
+                        onChange={(evt) =>
+                          setFormData({
+                            ...formData,
+                            date: evt.target.value,
+                            time: evt.target.value,
+                          })}
+                        type={item.type}
+                        id={item.id}
+                        name={item.name}
+                        value={item.value}
+                      />
+                      <span className="custom-radio__label">{item.time}</span>
+                    </label>
+                  ))}
                 </div>
               </fieldset>
             </fieldset>
@@ -210,6 +129,12 @@ const BookingQuest = (): JSX.Element => {
                   Ваше имя
                 </label>
                 <input
+                  value={formData.contactPerson}
+                  onChange={(evt) =>
+                    setFormData({
+                      ...formData,
+                      contactPerson: evt.target.value,
+                    })}
                   type="text"
                   id="name"
                   name="name"
@@ -223,6 +148,9 @@ const BookingQuest = (): JSX.Element => {
                   Контактный телефон
                 </label>
                 <input
+                  value={formData.phone}
+                  onChange={(evt) =>
+                    setFormData({ ...formData, phone: evt.target.value })}
                   type="tel"
                   id="tel"
                   name="tel"
@@ -236,6 +164,9 @@ const BookingQuest = (): JSX.Element => {
                   Количество участников
                 </label>
                 <input
+                  value={formData.peopleCount}
+                  onChange={(evt) =>
+                    setFormData({ ...formData, peopleCount: parseInt((evt.target.value), 10) })}
                   type="number"
                   id="person"
                   name="person"
@@ -287,66 +218,7 @@ const BookingQuest = (): JSX.Element => {
           </form>
         </div>
       </main>
-      <footer className="footer">
-        <div className="container container--size-l">
-          <div className="socials">
-            <ul className="socials__list">
-              <li className="socials__item">
-                <a
-                  className="socials__link"
-                  href="#"
-                  aria-label="Skype"
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                >
-                  <svg
-                    className="socials__icon socials__icon--default"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <use xlinkHref="#icon-skype-default"></use>
-                  </svg>
-                  <svg
-                    className="socials__icon socials__icon--interactive"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <use xlinkHref="#icon-skype-interactive"></use>
-                  </svg>
-                </a>
-              </li>
-              <li className="socials__item">
-                <a
-                  className="socials__link"
-                  href="#"
-                  aria-label="ВКонтакте"
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                >
-                  <svg
-                    className="socials__icon socials__icon--default"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <use xlinkHref="#icon-vk-default"></use>
-                  </svg>
-                  <svg
-                    className="socials__icon socials__icon--interactive"
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  >
-                    <use xlinkHref="#icon-vk-interactive"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

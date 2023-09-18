@@ -82,5 +82,15 @@ export type NavigationLevelsListType = {
   isActive: boolean;
 }
 
+export type TimeSpendingType = {
+  type: string;
+  id: string;
+  name: string;
+  checked?: boolean;
+  required?: boolean;
+  value: string;
+  time: string;
+}
+
 
 export type Token = string;
